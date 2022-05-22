@@ -1,0 +1,119 @@
+.card {
+    // margin-left: 200px;
+    // margin-top: 200px;
+    height: 640px;
+    padding: 10px;
+    padding-bottom: 0;
+    min-width: 33.33333%;
+    border: none;
+    box-shadow: none;
+    position: relative;
+    border-radius: 4px 4px 0 0;
+    &-img {
+        width: 100%;
+        max-height: 550px;
+        img {
+            height: 100%;
+            width: 100%;
+
+        }
+    }
+    &-price {
+        display: flex;
+        font-size: 22px;
+        .currency {
+            margin-left: 5px;
+        }
+    }
+
+    &:hover {
+        // border: 1px solid rgba(0,0,0,.1);
+        border-bottom: none;
+        box-shadow: 0 -8px 10px rgb(59 55 43 / 15%);
+        z-index: 15;
+    }
+
+     &-title, &-link {
+         margin-top: 10px;
+        text-decoration: none;
+        color: #000;
+        &:hover {
+            color: rgb(223, 142, 88);
+        }
+    }
+}
+
+.item {
+    &-size {
+        &-title {
+            font-size: 14px;
+            margin-top: 20px;
+        }
+        &-panel {
+            display: flex;
+            margin-top: 10px;
+        }
+        &-block {
+            text-align: center;
+            padding: 3px;
+            font-size: 16px;
+            font-weight: 100;
+            min-width: 40px;
+            margin-right: 5px;
+            border: 1px solid $dark;
+            &-active {
+                color: #fff;
+                background-color: $dark;
+            }
+        }
+    }
+
+    &-color {
+        &-title {
+            font-size: 14px;
+        }
+        &-panel {
+            display: flex;
+            margin-top: 10px;
+        }
+        &-img {
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            margin-right: 10px;
+            &-active {
+                border: 1px solid rgba(0,0,0,.2);
+            }
+        }
+    }
+    &-btn {
+        margin-top: 20px;
+    }
+    &-favorite {
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+        font-size: 14px;
+        &-ico {
+            margin-right: 5px;
+            svg {
+                height: 20px;
+            }
+        }
+    }
+}
+
+.card-item-active {
+    display: none;
+    z-index: 999999;
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    width: 33.333%;
+    padding: 10px;
+    left: 0;
+    border-radius: 0 0 4px 4px;
+    // border: 1px solid rgba(0,0,0, .1);
+    border: none;
+    box-shadow: 0 8px 10px rgb(59 55 43 / 15%);
+    width: 100%;
+}

@@ -1,0 +1,26 @@
+.tab {
+    max-width: 100%;
+    padding: 0 10px 0 10px;
+    margin-top: 20px;
+    &-panel {
+        border: none;
+    }
+    &-item {
+        border: none;
+        border-radius: 4px;
+        font-weight: bold;
+        font-size: 26px;
+        &:hover {
+            color: rgb(214, 151, 162);
+        }
+        &--active {
+            &:hover {
+                color: #000
+            }
+        }
+    }
+    &-content {
+        width: 100%;
+        border: none;
+    }
+}

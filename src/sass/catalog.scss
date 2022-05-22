@@ -1,0 +1,37 @@
+.card-wrapper {
+    display: flex;
+    margin: 0 auto;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    padding: 0 20px;
+    .card {
+        margin-top: 20px;
+    }
+}
+
+.nav {
+    margin: 0 auto;
+    margin-top: 20px;
+    &-menu {
+        font-size: 11px;
+        color: #ACACAC;
+        line-height: 1.6;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &-link {
+            margin-right: 10px;
+            text-decoration: none;
+            color: #ACACAC;
+        }
+        span {
+            margin-right: 10px;
+        }
+    }
+    &-current {
+        margin-top: 15px;
+        font-size: 40px;
+        font-weight: 300;
+        line-height: 1.1;
+    }
+}

@@ -1,0 +1,15 @@
+@import './header.scss';
+@import './slider.scss';
+@import './blocks.scss';
+@import './tabs.scss';
+@import './footer';
+@import './card.scss';
+@import './product-slider.scss';
+@import './catalog.scss';
+@import './filter.scss';
+
+section {
+    min-width: 960px;
+    max-width: 1440px;
+    margin: 0 auto;
+}
