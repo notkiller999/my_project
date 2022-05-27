@@ -243,7 +243,7 @@
 
     for (let o = 0; o < this.length; o++) {
       const l = this[o].querySelector(s).children;
-      e(t).click(s => {
+      e(this[o].querySelector(t)).click(s => {
         if (s.target && !s.target.classList.contains(t.slice(1))) {
           e(s.target).addClass(i).sibbling().removeClass(i);
 
@@ -417,7 +417,8 @@ const miniSlider = _ref => {
     sliderWrapper,
     next,
     prev,
-    container
+    container,
+    numberOfSlides = 3
   } = _ref;
   const parent = document.querySelector(container),
         slideInner = parent.querySelector(sliderInner),
@@ -425,7 +426,7 @@ const miniSlider = _ref => {
         sliderWrapp = parent.querySelector(sliderWrapper),
         nextBtn = parent.querySelector(next),
         prevBtn = parent.querySelector(prev),
-        width = window.getComputedStyle(slideInner).width.replace(/\D/g, '') / 3;
+        width = window.getComputedStyle(slideInner).width.replace(/\D/g, '') / numberOfSlides;
   console.log(width);
   let offset = 0;
   slides.forEach(slide => {
@@ -435,12 +436,12 @@ const miniSlider = _ref => {
         height: 100%;
         `;
   });
-  sliderWrapp.style.width = 100 * slides.length / 3 + '%';
+  sliderWrapp.style.width = 100 * slides.length / numberOfSlides + '%';
   nextBtn.addEventListener('click', e => {
     e.preventDefault();
 
-    if (offset < (slides.length - 3) * width) {
-      if (offset < (slides.length - 4) * width) {
+    if (offset < (slides.length - numberOfSlides) * width) {
+      if (offset < (slides.length - (numberOfSlides + 1)) * width) {
         offset += width * 2;
       } else {
         offset += width;
@@ -448,8 +449,6 @@ const miniSlider = _ref => {
 
       sliderWrapp.style.transform = `translateX(-${offset}px)`;
     }
-
-    console.log(offset, (slides.length - 3) * width);
   });
   prevBtn.addEventListener('click', e => {
     e.preventDefault();
@@ -565,9 +564,9 @@ window.addEventListener('DOMContentLoaded', () => {
   } catch (e) {}
 
   try {
-    const tabItems = document.querySelectorAll('.tab-item'),
-          tabContent = document.querySelectorAll('.tab-content'),
-          activeTab = document.querySelector('.tab-item--active');
+    const tabItems = document.querySelectorAll('.card-slider-block .tab-item'),
+          tabContent = document.querySelectorAll('.card-slider-block .tab-content'),
+          activeTab = document.querySelector('.card-slider-block .tab-item--active');
     tabItems.forEach(item => {
       item.addEventListener('click', e => {
         if (e.target != activeTab) {
@@ -589,22 +588,48 @@ window.addEventListener('DOMContentLoaded', () => {
         sliderItems: '.product-slider-item',
         sliderWrapper: '.product-slider-wrapper',
         next: '[data-slider="next"]',
-        prev: '[data-slider="prev"]'
+        prev: '[data-slider="prev"]',
+        numberOfSlides: 3
       });
     }
 
     slider();
   } catch (e) {}
 
-  const cards = document.querySelectorAll('.card');
-  cards.forEach(card => {
-    card.addEventListener('mouseover', () => {
-      // console.log(card);
-      card.querySelector(`.card-item-active`).style.display = 'block';
+  try {
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+      card.addEventListener('mouseover', () => {
+        // console.log(card);
+        card.querySelector(`.card-item-active`).style.display = 'block';
+      });
+      card.addEventListener('mouseleave', () => {
+        card.querySelector(`.card-item-active`).style.display = 'none';
+      });
     });
-    card.addEventListener('mouseleave', () => {
-      card.querySelector(`.card-item-active`).style.display = 'none';
+  } catch (e) {}
+
+  try {
+    (0,_miniSlider__WEBPACK_IMPORTED_MODULE_1__["default"])({
+      container: '.more-products-slider',
+      sliderInner: '.more-products-slider-inner',
+      sliderItems: '.more-products-slider-item',
+      sliderWrapper: '.more-products-slider-wrapper',
+      next: '.more-products-slider [data-slider="next"]',
+      prev: '.more-products-slider [data-slider="prev"]',
+      numberOfSlides: 7
     });
+  } catch (e) {}
+
+  $('.product-tab').tab({
+    tabHeaderSelector: '.product-tab-panel',
+    // селектор обертки табов
+    tabContentSelector: '.product-tab-wrapper',
+    // селектор обертки контента
+    tabHederActiveClass: 'product-tab-item--active',
+    // класс активности табов
+    tabContentActiveClass: 'product-tab-content--active' // класс активности контента
+
   });
 });
 })();

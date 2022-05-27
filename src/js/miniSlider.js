@@ -4,7 +4,8 @@ const miniSlider = ({
     sliderWrapper,
     next,
     prev,
-    container}) => {
+    container,
+    numberOfSlides = 3}) => {
 
     const parent = document.querySelector(container),
         slideInner = parent.querySelector(sliderInner),
@@ -12,7 +13,7 @@ const miniSlider = ({
         sliderWrapp = parent.querySelector(sliderWrapper),
         nextBtn = parent.querySelector(next),
         prevBtn = parent.querySelector(prev),
-        width = window.getComputedStyle(slideInner).width.replace(/\D/g, '') / 3;
+        width = window.getComputedStyle(slideInner).width.replace(/\D/g, '') / numberOfSlides;
     console.log(width);
 
     let offset = 0;
@@ -24,19 +25,18 @@ const miniSlider = ({
         height: 100%;
         `;
     })
-    sliderWrapp.style.width = (100 * slides.length) / 3 + '%';
+    sliderWrapp.style.width = (100 * slides.length) / numberOfSlides + '%';
     
     nextBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        if (offset < (slides.length - 3) * width) {
-            if (offset < (slides.length - 4) * width) {
+        if (offset < (slides.length - numberOfSlides) * width) {
+            if (offset < (slides.length - (numberOfSlides + 1)) * width) {
                 offset += width * 2;
             } else {
                 offset += width;
             }
             sliderWrapp.style.transform = `translateX(-${offset}px)`;
         }
-        console.log(offset, ((slides.length -3) * width));
     })
 
     prevBtn.addEventListener('click', (e) => {

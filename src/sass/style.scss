@@ -1,12 +1,18 @@
-@import './header.scss';
-@import './slider.scss';
-@import './blocks.scss';
-@import './tabs.scss';
-@import './footer';
-@import './card.scss';
-@import './product-slider.scss';
-@import './catalog.scss';
-@import './filter.scss';
+@import './pages/header';
+@import './components/slider.scss';
+@import './components/blocks.scss';
+@import './components/tabs.scss';
+@import './pages/footer';
+@import './components/card.scss';
+@import './components/product-slider.scss';
+@import './pages/catalog.scss';
+@import './components/filter.scss';
+@import './pages/product.scss';
+@import './components/product-tab.scss';
+
+body {
+    font-family: -apple-system,BlinkMacSystemFont,Segoe\ UI,Roboto,Helvetica\ Neue,Arial,Noto\ Sans,sans-serif;;
+}
 
 section {
     min-width: 960px;

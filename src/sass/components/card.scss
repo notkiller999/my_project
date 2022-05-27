@@ -38,7 +38,7 @@
         text-decoration: none;
         color: #000;
         &:hover {
-            color: rgb(223, 142, 88);
+            color: $hover;
         }
     }
 }

@@ -13,8 +13,8 @@
     margin: 0 auto;
     margin-top: 20px;
     &-menu {
-        font-size: 11px;
-        color: #ACACAC;
+        font-size: 13px;
+        color: $light;
         line-height: 1.6;
         display: flex;
         justify-content: center;
@@ -22,7 +22,7 @@
         &-link {
             margin-right: 10px;
             text-decoration: none;
-            color: #ACACAC;
+            color: $light;
         }
         span {
             margin-right: 10px;

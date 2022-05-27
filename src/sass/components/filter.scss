@@ -95,7 +95,7 @@
     }
     &-slider {
         position: relative;
-        background: #ACACAC;
+        background: $light;
         margin-top: 15px;
         height: 5px;
         &-handle {
@@ -104,7 +104,7 @@
             width: 15px;
             height: 15px;
             cursor: pointer;
-            border: 2px solid #ACACAC;
+            border: 2px solid $light;
             top: -7px;
             background: #FFF;
             z-index: 2;
