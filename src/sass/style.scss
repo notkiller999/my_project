@@ -9,6 +9,11 @@
 @import './components/filter.scss';
 @import './pages/product.scss';
 @import './components/product-tab.scss';
+@import './components/modal.scss';
+
+.btn {
+    border-radius: 0;
+}
 
 body {
     font-family: -apple-system,BlinkMacSystemFont,Segoe\ UI,Roboto,Helvetica\ Neue,Arial,Noto\ Sans,sans-serif;;

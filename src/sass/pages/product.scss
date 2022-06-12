@@ -128,12 +128,8 @@
             border-radius: 0;
         }
     }
-    &-descr {
-        // margin-top: 50px;
-    }
 
     .tab {
-        // position: relative;
         margin-top: 0;
         padding: 0;
         &-item {
@@ -355,6 +351,18 @@
     &-slider {
         margin-top: 30px;
     }
+}
+
+.viewed-products {
+    margin-top: 70px;
+    padding: 0 30px;
+    &-cards {
+        display: flex;
+        margin-top: 20px;
+    }
+}
+
+.more-products, .viewed-products {
     .product-complect-card {
         height: 260px;
         width: 160px;

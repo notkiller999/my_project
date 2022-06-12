@@ -1,7 +1,14 @@
 import './lib';
-import miniSlider from './miniSlider';
+import miniSlider from './modules/miniSlider';
+import createCards from './modules/cards/createCards';
+import activateCards from './modules/cards/activateCards';
 
 window.addEventListener('DOMContentLoaded', () => {
+    'use strict'
+
+    const basketState = [];
+
+
     try {
         $('.main-slider').slider({
             sliderInner: '.main-slider-inner',
@@ -49,18 +56,15 @@ window.addEventListener('DOMContentLoaded', () => {
     } catch(e){}
     
 
+    
     try {
-        const cards = document.querySelectorAll('.card');
-        cards.forEach(card => {
-            card.addEventListener('mouseover', () => {
-                // console.log(card);
-                card.querySelector(`.card-item-active`).style.display = 'block';
-            })
-            card.addEventListener('mouseleave', () => {
-                card.querySelector(`.card-item-active`).style.display = 'none';
-            })
-        })
+        activateCards('.card-wrapper', basketState);
     } catch (e) { }
+    
+    try {
+        activateCards('.product-slider', basketState)
+    } catch(e) {}
+       
     
     try {
         miniSlider({
@@ -75,10 +79,12 @@ window.addEventListener('DOMContentLoaded', () => {
     } catch (e) { }
     
     $('.product-tab').tab({
-        tabHeaderSelector: '.product-tab-panel', // селектор обертки табов
-        tabContentSelector: '.product-tab-wrapper', // селектор обертки контента
-        tabHederActiveClass: 'product-tab-item--active', // класс активности табов
-        tabContentActiveClass: 'product-tab-content--active' // класс активности контента
+        tabHeaderSelector: '.product-tab-panel', 
+        tabContentSelector: '.product-tab-wrapper',
+        tabHederActiveClass: 'product-tab-item--active',
+        tabContentActiveClass: 'product-tab-content--active'
     });
+       
+    createCards();
 
 });
